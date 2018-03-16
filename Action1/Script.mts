@@ -1,4 +1,4 @@
-﻿SystemUtil.Run "C:\Users\utpal\.jenkins\workspace\Build_Generate\FlightEXE\FlightApp\FlightApp\bin\Debug\FlightApp.exe"
+﻿SystemUtil.Run "C:\Program Files (x86)\Jenkins\workspace\FlightAppCI\FlightApp\FlightApp\bin\Debug\FlightApp.exe"
 
 
 If UIAWindow("Login").UIAEdit("txtUser").Exist(5) Then
