@@ -4,12 +4,6 @@ Set qtpApp = CreateObject("QuickTest.Application")
 Set qtpRepositories = qtpApp.Test.Actions("Flight_Booking").ObjectRepositories 
 qtpRepositories.Add(Environment.Value("TestDir")&"\Repository1.tsr")
 
-If UIAWindow("Booking").UIARadioButton("One way").Exist(5) Then
-	UIAWindow("Booking").UIARadioButton("One way").Select
-else
-	reporter.ReportEvent micFail,"Select radio button" ,"One way button is not selected."
-End If
-
 If UIAWindow("Booking").UIAComboBox("cmbFrom").Exist(5) Then
 	UIAWindow("Booking").UIAComboBox("cmbFrom").Select DataTable.Value("From_City")
 else
@@ -48,6 +42,8 @@ End If
 
 If UIAWindow("Booking").UIAButton("Book").Exist(5) Then
 	UIAWindow("Booking").UIAButton("Book").Click
+	orderNumber = UIAWindow("Booking").UIAWindow("Window").UIAObject("Flight has been booked").GetROProperty("name")
+	reporter.ReportEvent micPass ,"Order Booked " , orderNumber	
 else
 	reporter.ReportEvent micFail,"Click on button" ,"Book button is not display."	
 End If
