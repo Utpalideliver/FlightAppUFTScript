@@ -1,5 +1,6 @@
 ﻿Dim qtpApp
 Dim qtpRepositories 
+
 Set qtpApp = CreateObject("QuickTest.Application") 
 Set qtpRepositories = qtpApp.Test.Actions("Flight_Booking").ObjectRepositories 
 qtpRepositories.Add(Environment.Value("TestDir")&"\Repository1.tsr")
